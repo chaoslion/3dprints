@@ -1,0 +1,18 @@
+name: stl builder
+on: [push]
+defaults:
+  run:
+    shell: bash
+    working-directory: src
+jobs:
+  build-stls:
+    runs-on: ubuntu-latest
+    steps:
+      - name: install deps
+        uses: py-actions/py-dependency-install@v4
+        with:
+          update-pip: "false"
+          update-setuptools: "false"
+          update-wheel: "false"
+          path: requirements.txt
+      - run: for i in module_*.py; do python3 $i; done
