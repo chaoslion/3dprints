@@ -10,7 +10,6 @@ jobs:
           update-pip: "false"
           update-setuptools: "false"
           update-wheel: "false"
-          path: requirements.txt
       - name: build models
         run: for i in model_*.py; do python3 $i; done
         shell: bash
