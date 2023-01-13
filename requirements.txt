@@ -1,1 +1,2 @@
 cadquery==2.2.0b0
+cadquery-server==0.4.1
