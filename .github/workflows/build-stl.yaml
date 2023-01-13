@@ -1,9 +1,5 @@
 name: stl builder
 on: [push]
-defaults:
-  run:
-    shell: bash
-    working-directory: src
 jobs:
   build-stls:
     runs-on: ubuntu-latest
@@ -15,4 +11,7 @@ jobs:
           update-setuptools: "false"
           update-wheel: "false"
           path: requirements.txt
-      - run: for i in module_*.py; do python3 $i; done
+      - name: build models
+        run: for i in model_*.py; do python3 $i; done
+        shell: bash
+        working-directory: src
